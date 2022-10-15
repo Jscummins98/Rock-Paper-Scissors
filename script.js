@@ -22,3 +22,25 @@ function playRound(playerSelection, computerSelection){
             if(computerSelection === "scissors") return "Tie!";
         }
 }
+function game(){
+    let userScore = 0;
+    let cpuScore = 0;
+    let tieCount = 0;
+    for(let i = 0; i < 5; i++){
+        let roundResult = playRound(prompt("Enter your move.", "Rock, Paper, or Scissors"), getComputerChoice());
+        console.log(roundResult);
+        if(roundResult.includes("win")) userScore++;
+        if(roundResult.includes("lose")) cpuScore++;
+        if(roundResult.includes("Tie")) tieCount++;
+        console.log("User Score: " + userScore);
+        console.log("Cpu Score: " + cpuScore);
+        console.log("Ties: " + tieCount);
+    }
+    if(userScore > cpuScore){
+        console.log("Congratulations! You Win!");
+    }else if(userScore < cpuScore){
+        console.log("The computer wins!");
+    }else{
+        console.log("It's a tie game!");
+    }
+}
